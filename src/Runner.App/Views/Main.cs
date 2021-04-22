@@ -4,6 +4,7 @@ using LiveCharts.Wpf;
 using MaterialSkin2DotNet;
 using MaterialSkin2DotNet.Controls;
 using Models;
+using Runner.App.StaticResource;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,9 +20,10 @@ namespace Runner.App.Views
     public partial class Main : MaterialForm
     {
         private MaterialSkinManager material;
-       
+
         private readonly IDatabaseRepositoryPattern _db;
         private readonly IBackupRepositoryPattern _bk;
+        string finfolder;
         public Main(IDatabaseRepositoryPattern db, IBackupRepositoryPattern bk)
         {
             _db = db;
@@ -38,11 +40,38 @@ namespace Runner.App.Views
             material.Theme = MaterialSkinManager.Themes.LIGHT;
             material.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
             showChart(_db.GetDatabases());
+            txtmask.Mask = "*******";
+            ConfigCb();
+        }
+
+        public void ConfigCb()
+        {
+            #region Cb Databases
+            var list = _db.GetDatabases();
+            this.cbdb.DataSource = list.Except();
+            this.cbdb.ValueMember = "ID";
+            this.cbdb.DisplayMember = "Databasename";
+
+            #endregion
+
+            #region Cb Backup
+            var src = new List<Typebak>()
+            {
+                new Typebak{ Id = 0, type= "Seleccione una opción"},
+                new Typebak{ Id = 1, type= "Full"},
+                new Typebak{ Id = 2, type= "Differential"},
+                new Typebak{ Id = 2, type= "Log Transactional"}
+            };
+
+            this.cbbackup.DataSource = src;
+            this.cbbackup.ValueMember = "Id";
+            this.cbbackup.DisplayMember = "type";
+            #endregion
         }
 
         private void tab2_Click(object sender, EventArgs e)
         {
-            
+
         }
         public void showChart(IReadOnlyList<Database> dbinfo)
         {
@@ -65,12 +94,82 @@ namespace Runner.App.Views
                     );
             }
             pieChart1.LegendLocation = LegendLocation.Bottom;
-            
+
         }
+
+
+        private Backup Createnew(string dbname, int backtype, string name, string path)
+        {
+            return new Backup()
+            {
+                DatabaseName = dbname,
+                BackupType = backtype,
+                Name = name,
+                Path = path
+            };
+        }
+        private bool Save(Backup model)
+        {
+            return _bk.Insert(model);
+        }
+
+        private void GenerateBrowser()
+        {
+            var folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == DialogResult.OK)
+            {
+                finfolder = folder.SelectedPath;
+            }
+        }
+
+        private void DoAction()
+        {
+            if (!string.IsNullOrEmpty(txtfilename.Text))
+            {
+                var bak = Createnew(cbdb.Text, cbbackup.SelectedIndex, txtfilename.Text, finfolder);
+                Save(bak);
+            }
+            else
+                throw new Exception();
+        }
+        #region  
         private void materialTabControl1_MouseClick(object sender, MouseEventArgs e)
         {
-            
-            
+
+
+        }
+
+        private void tb1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+        private void bttnbrowser_Click(object sender, EventArgs e)
+        {
+            GenerateBrowser();
+        }
+
+        private void bttnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DoAction();
+                MessageBox.Show("Respaldo exitoso!!", "IMessage", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error \n\tSugerencias: \t\n Verifique el nombre de su archivo de respaldo \n Seleccione el tipo de respaldo", "IMessage", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
