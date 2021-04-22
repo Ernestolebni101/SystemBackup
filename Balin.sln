@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "src\Models\Models
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "balin.Repository", "src\balin.Repository\balin.Repository.csproj", "{6BC98BA6-A101-4A7D-946E-D0D8693E878B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner.App", "src\Runner.App\Runner.App.csproj", "{BF2A0109-E16C-4F2D-9ED4-FFC29C85B431}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Runner.App", "src\Runner.App\Runner.App.csproj", "{BF2A0109-E16C-4F2D-9ED4-FFC29C85B431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

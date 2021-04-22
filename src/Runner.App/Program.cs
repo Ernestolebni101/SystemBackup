@@ -30,7 +30,9 @@ namespace Runner.App
 
         private static void Initialize()
         {
+            var newstr = @"server=./;Database= master;User Id=s;password=googlehsz256jt;";
             var path = string.Empty;
+            StaticResource.StaticResource.ReWritejsonFile(path.Output(), newstr);
             var builder = new ConfigurationBuilder().SetBasePath(path.Output())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             config = builder.Build();
