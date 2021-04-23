@@ -18,22 +18,21 @@ namespace Runner.App
         /// </summary>
         /// 
         private static IConfigurationRoot config;
+        public static string path { get; set; } = path.Output();
         [STAThread]
         static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            StaticResource.StaticResource.ReWritejsonFile(path);
             Initialize();
             Application.Run(openPrincipal());
         }
 
         private static void Initialize()
         {
-            var newstr = @"server=./;Database= master;User Id=s;password=googlehsz256jt;";
-            var path = string.Empty;
-            StaticResource.StaticResource.ReWritejsonFile(path.Output(), newstr);
-            var builder = new ConfigurationBuilder().SetBasePath(path.Output())
+            var builder = new ConfigurationBuilder().SetBasePath(path)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             config = builder.Build();
         }

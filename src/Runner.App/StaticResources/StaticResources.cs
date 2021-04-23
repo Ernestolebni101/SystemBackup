@@ -20,13 +20,13 @@ namespace Runner.App.StaticResource
             return item;
         }
 
-        public static void ReWritejsonFile(string path, dynamic newcontent)
+        public static void ReWritejsonFile(string path)
         {
 
-            var root = "server=./;Database= master;User Id=sa;password=sdfssdmsdime4inf;";
-            var jsonpath = path + "appsettings.json";
-            var current = path + "settings.json";
-            
+            var root = $"Server={Dns.GetHostName()};Database=master;Trusted_Connection=True;";
+            var jsonpath = path + "settings.json";
+            var current = path + "Appsettings.json";   
+
             using (var sr = new StreamReader(jsonpath))
             {
                 var jsonfile = sr.ReadToEnd();
@@ -36,6 +36,7 @@ namespace Runner.App.StaticResource
                 var newjson = (string)JsonConvert.SerializeObject(obj);
              
                 File.WriteAllTextAsync(current, newjson);
+                sr.Close();
             }
         }
 

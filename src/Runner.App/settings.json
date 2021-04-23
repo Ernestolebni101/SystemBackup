@@ -1,1 +1,5 @@
-{"ConnectionStrings":{"DefaultConnection":"server=./;Database= master;User Id=sa;password=sdfssdmsdime4inf;"}}
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=./;Database= master;User Id=sa;password=googlehsz256jt;"
+  }
+}

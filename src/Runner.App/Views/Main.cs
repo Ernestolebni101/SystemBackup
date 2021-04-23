@@ -40,7 +40,7 @@ namespace Runner.App.Views
             material.Theme = MaterialSkinManager.Themes.LIGHT;
             material.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
             showChart(_db.GetDatabases());
-            txtmask.Mask = "*******";
+           
             ConfigCb();
         }
 
@@ -69,10 +69,7 @@ namespace Runner.App.Views
             #endregion
         }
 
-        private void tab2_Click(object sender, EventArgs e)
-        {
-
-        }
+      
         public void showChart(IReadOnlyList<Database> dbinfo)
         {
             Func<ChartPoint, string> labelPoint = chartPoint =>
@@ -132,28 +129,6 @@ namespace Runner.App.Views
             else
                 throw new Exception();
         }
-        #region  
-        private void materialTabControl1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-
-        }
-
-        private void tb1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
         private void bttnbrowser_Click(object sender, EventArgs e)
         {
             GenerateBrowser();

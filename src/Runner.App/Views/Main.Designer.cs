@@ -35,7 +35,6 @@ namespace Runner.App.Views
             this.tab2 = new System.Windows.Forms.TabPage();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.tb1 = new System.Windows.Forms.TabPage();
-            this.txtmask = new System.Windows.Forms.MaskedTextBox();
             this.cbdb = new MaterialSkin2DotNet.Controls.MaterialComboBox();
             this.bttnSave = new MaterialSkin2DotNet.Controls.MaterialButton();
             this.ds = new MaterialSkin2DotNet.Controls.MaterialLabel();
@@ -44,11 +43,6 @@ namespace Runner.App.Views
             this.fefef = new MaterialSkin2DotNet.Controls.MaterialLabel();
             this.ddd = new MaterialSkin2DotNet.Controls.MaterialLabel();
             this.txtfilename = new MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox();
-            this.materialLabel3 = new MaterialSkin2DotNet.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin2DotNet.Controls.MaterialLabel();
-            this.txtlogin = new MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox();
-            this.materialLabel1 = new MaterialSkin2DotNet.Controls.MaterialLabel();
-            this.txtservername = new MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox();
             this.materialTabControl1 = new MaterialSkin2DotNet.Controls.MaterialTabControl();
             this.tab2.SuspendLayout();
             this.tb1.SuspendLayout();
@@ -74,7 +68,6 @@ namespace Runner.App.Views
             this.tab2.Size = new System.Drawing.Size(668, 371);
             this.tab2.TabIndex = 1;
             this.tab2.Text = "Statistics";
-            this.tab2.Click += new System.EventHandler(this.tab2_Click);
             // 
             // pieChart1
             // 
@@ -87,7 +80,6 @@ namespace Runner.App.Views
             // tb1
             // 
             this.tb1.BackColor = System.Drawing.Color.White;
-            this.tb1.Controls.Add(this.txtmask);
             this.tb1.Controls.Add(this.cbdb);
             this.tb1.Controls.Add(this.bttnSave);
             this.tb1.Controls.Add(this.ds);
@@ -96,11 +88,6 @@ namespace Runner.App.Views
             this.tb1.Controls.Add(this.fefef);
             this.tb1.Controls.Add(this.ddd);
             this.tb1.Controls.Add(this.txtfilename);
-            this.tb1.Controls.Add(this.materialLabel3);
-            this.tb1.Controls.Add(this.materialLabel2);
-            this.tb1.Controls.Add(this.txtlogin);
-            this.tb1.Controls.Add(this.materialLabel1);
-            this.tb1.Controls.Add(this.txtservername);
             this.tb1.ImageKey = "backup.png";
             this.tb1.Location = new System.Drawing.Point(4, 39);
             this.tb1.Name = "tb1";
@@ -108,14 +95,7 @@ namespace Runner.App.Views
             this.tb1.Size = new System.Drawing.Size(668, 371);
             this.tb1.TabIndex = 0;
             this.tb1.Text = "Backup";
-            this.tb1.Click += new System.EventHandler(this.tb1_Click_1);
-            // 
-            // txtmask
-            // 
-            this.txtmask.Location = new System.Drawing.Point(398, 67);
-            this.txtmask.Name = "txtmask";
-            this.txtmask.Size = new System.Drawing.Size(157, 23);
-            this.txtmask.TabIndex = 13;
+            
             // 
             // cbdb
             // 
@@ -131,11 +111,11 @@ namespace Runner.App.Views
             this.cbdb.FormattingEnabled = true;
             this.cbdb.IntegralHeight = false;
             this.cbdb.ItemHeight = 43;
-            this.cbdb.Location = new System.Drawing.Point(433, 169);
+            this.cbdb.Location = new System.Drawing.Point(315, 80);
             this.cbdb.MaxDropDownItems = 4;
             this.cbdb.MouseState = MaterialSkin2DotNet.MouseState.OUT;
             this.cbdb.Name = "cbdb";
-            this.cbdb.Size = new System.Drawing.Size(122, 49);
+            this.cbdb.Size = new System.Drawing.Size(169, 49);
             this.cbdb.TabIndex = 12;
             // 
             // bttnSave
@@ -145,7 +125,7 @@ namespace Runner.App.Views
             this.bttnSave.DrawShadows = true;
             this.bttnSave.HighEmphasis = true;
             this.bttnSave.Icon = null;
-            this.bttnSave.Location = new System.Drawing.Point(398, 301);
+            this.bttnSave.Location = new System.Drawing.Point(417, 281);
             this.bttnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.bttnSave.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.bttnSave.Name = "bttnSave";
@@ -162,7 +142,7 @@ namespace Runner.App.Views
             this.ds.AutoSize = true;
             this.ds.Depth = 0;
             this.ds.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ds.Location = new System.Drawing.Point(436, 146);
+            this.ds.Location = new System.Drawing.Point(318, 57);
             this.ds.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.ds.Name = "ds";
             this.ds.Size = new System.Drawing.Size(101, 19);
@@ -176,7 +156,7 @@ namespace Runner.App.Views
             this.bttnbrowser.DrawShadows = true;
             this.bttnbrowser.HighEmphasis = true;
             this.bttnbrowser.Icon = null;
-            this.bttnbrowser.Location = new System.Drawing.Point(398, 253);
+            this.bttnbrowser.Location = new System.Drawing.Point(417, 233);
             this.bttnbrowser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.bttnbrowser.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.bttnbrowser.Name = "bttnbrowser";
@@ -206,11 +186,11 @@ namespace Runner.App.Views
             "Full",
             "Differential",
             "Log Transactional"});
-            this.cbbackup.Location = new System.Drawing.Point(222, 169);
+            this.cbbackup.Location = new System.Drawing.Point(15, 188);
             this.cbbackup.MaxDropDownItems = 4;
             this.cbbackup.MouseState = MaterialSkin2DotNet.MouseState.OUT;
             this.cbbackup.Name = "cbbackup";
-            this.cbbackup.Size = new System.Drawing.Size(122, 49);
+            this.cbbackup.Size = new System.Drawing.Size(237, 49);
             this.cbbackup.TabIndex = 10;
             // 
             // fefef
@@ -218,7 +198,7 @@ namespace Runner.App.Views
             this.fefef.AutoSize = true;
             this.fefef.Depth = 0;
             this.fefef.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.fefef.Location = new System.Drawing.Point(234, 147);
+            this.fefef.Location = new System.Drawing.Point(27, 166);
             this.fefef.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.fefef.Name = "fefef";
             this.fefef.Size = new System.Drawing.Size(110, 19);
@@ -230,7 +210,7 @@ namespace Runner.App.Views
             this.ddd.AutoSize = true;
             this.ddd.Depth = 0;
             this.ddd.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ddd.Location = new System.Drawing.Point(17, 146);
+            this.ddd.Location = new System.Drawing.Point(27, 57);
             this.ddd.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.ddd.Name = "ddd";
             this.ddd.Size = new System.Drawing.Size(139, 19);
@@ -245,78 +225,12 @@ namespace Runner.App.Views
             this.txtfilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtfilename.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txtfilename.Hint = "";
-            this.txtfilename.Location = new System.Drawing.Point(17, 168);
+            this.txtfilename.Location = new System.Drawing.Point(27, 79);
             this.txtfilename.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
             this.txtfilename.Name = "txtfilename";
             this.txtfilename.Size = new System.Drawing.Size(142, 21);
             this.txtfilename.TabIndex = 6;
             this.txtfilename.Text = "";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(425, 45);
-            this.materialLabel3.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(71, 19);
-            this.materialLabel3.TabIndex = 5;
-            this.materialLabel3.Text = "Password";
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(238, 45);
-            this.materialLabel2.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(54, 19);
-            this.materialLabel2.TabIndex = 3;
-            this.materialLabel2.Text = "usuario";
-            // 
-            // txtlogin
-            // 
-            this.txtlogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtlogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtlogin.Depth = 0;
-            this.txtlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtlogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtlogin.Hint = "";
-            this.txtlogin.Location = new System.Drawing.Point(238, 67);
-            this.txtlogin.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            this.txtlogin.Name = "txtlogin";
-            this.txtlogin.Size = new System.Drawing.Size(142, 21);
-            this.txtlogin.TabIndex = 2;
-            this.txtlogin.Text = "";
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(21, 45);
-            this.materialLabel1.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(142, 19);
-            this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Nombre del servidor";
-            // 
-            // txtservername
-            // 
-            this.txtservername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtservername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtservername.Depth = 0;
-            this.txtservername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtservername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtservername.Hint = "";
-            this.txtservername.Location = new System.Drawing.Point(21, 67);
-            this.txtservername.MouseState = MaterialSkin2DotNet.MouseState.HOVER;
-            this.txtservername.Name = "txtservername";
-            this.txtservername.Size = new System.Drawing.Size(142, 21);
-            this.txtservername.TabIndex = 0;
-            this.txtservername.Text = "";
             // 
             // materialTabControl1
             // 
@@ -332,7 +246,6 @@ namespace Runner.App.Views
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(676, 414);
             this.materialTabControl1.TabIndex = 0;
-            this.materialTabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.materialTabControl1_MouseClick);
             // 
             // Main
             // 
@@ -365,11 +278,6 @@ namespace Runner.App.Views
         private System.Windows.Forms.TabPage tb1;
         private MaterialSkin2DotNet.Controls.MaterialTabControl materialTabControl1;
         private LiveCharts.WinForms.PieChart pieChart1;
-        private MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox txtservername;
-        private MaterialSkin2DotNet.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin2DotNet.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox txtlogin;
-        private MaterialSkin2DotNet.Controls.MaterialLabel materialLabel3;
         private MaterialSkin2DotNet.Controls.MaterialLabel ddd;
         private MaterialSkin2DotNet.Controls.MaterialMultiLineTextBox txtfilename;
         private MaterialSkin2DotNet.Controls.MaterialLabel fefef;
@@ -378,6 +286,5 @@ namespace Runner.App.Views
         private MaterialSkin2DotNet.Controls.MaterialButton bttnSave;
         private MaterialSkin2DotNet.Controls.MaterialComboBox cbdb;
         private MaterialSkin2DotNet.Controls.MaterialLabel ds;
-        private System.Windows.Forms.MaskedTextBox txtmask;
     }
 }
